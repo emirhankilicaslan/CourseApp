@@ -1,0 +1,30 @@
+@model System.Collections.Generic.IEnumerable<Instructor>
+
+    <h2>Öğretmen Listesi</h2>
+    <a href="/Instructor/Create" class="btn btn-primary">Öğretmen Ekle</a>
+    <hr>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 150px;">@Html.DisplayNameFor(m => m.InstructorId)</th>
+                <th>@Html.DisplayNameFor(m => m.InstructorName)</th>
+                <th>@Html.DisplayNameFor(m => m.InstructorSurname)</th>
+                <th style="width: 150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var instructor in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => instructor.InstructorId)</td>
+                    <td>@Html.DisplayFor(modelItem => instructor.InstructorName)</td>
+                    <td>@Html.DisplayFor(modelItem => instructor.InstructorSurname)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@instructor.InstructorId" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@instructor.InstructorId" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -16,12 +16,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Course/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Course/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291cnNlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Instructor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdHJ1Y3Rvci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Instructor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdHJ1Y3Rvci9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/emirhankilicaslan/Desktop/aspnetcore-dersleri/CourseApp/Views/Shared/Error.cshtml]

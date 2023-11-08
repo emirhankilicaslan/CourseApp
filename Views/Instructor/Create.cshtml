@@ -1,0 +1,27 @@
+@model Instructor
+
+<h2>Öğretmen Ekle</h2>
+<hr>
+<form asp-controller="Instructor" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="InstructorName" class="form-label">Öğretmen Adı</label>
+        <input asp-for="InstructorName" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="InstructorSurname" class="form-label">Öğrenci Soyadı</label>
+        <input asp-for="InstructorSurname" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input asp-for="Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telephone" class="form-label">Telefon</label>
+        <input asp-for="Telephone" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="StartingDate" class="form-label">Başlama Tarihi</label>
+        <input asp-for="StartingDate" class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">Kaydet</button>
+</form>
