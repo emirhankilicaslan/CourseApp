@@ -17,6 +17,6 @@ namespace CourseApp.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
-        public DbSet<CourseRegistration> CourseRegistrations = null!;
+        public DbSet<CourseRegistration> CourseRegistrations { get; set; }
     }
 }
