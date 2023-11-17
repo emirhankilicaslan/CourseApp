@@ -1,3 +1,4 @@
+using CourseApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,11 @@ namespace CourseApp.Data
         }
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Courses.ToListAsync());
+            return View(await _context.Courses.Include(i => i.Instructor).ToListAsync());
         }
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Instructors = new SelectList(await _context.Instructors.ToListAsync(), "InstructorId", "NameSurname");
             return View();
         }
         [HttpPost]
@@ -33,16 +35,27 @@ namespace CourseApp.Data
             {
                 return NotFound();
             }
-            var course = await _context.Courses.FirstOrDefaultAsync(s => s.CourseId == id);
+            var course = await _context.Courses.
+                                                Include(s => s.CourseRegistrations).
+                                                ThenInclude(s => s.Student).
+                                                Select(s => new CourseViewModel()
+                                                {
+                                                    CourseId = s.CourseId,
+                                                    CourseName = s.CourseName,
+                                                    InstructorId = s.InstructorId,
+                                                    CourseRegistrations = s.CourseRegistrations
+                                                }).
+                                                FirstOrDefaultAsync(s => s.CourseId == id);
 
             if(course == null)
             {
                 return NotFound();
             }
+            ViewBag.Instructors = new SelectList(await _context.Instructors.ToListAsync(), "InstructorId", "NameSurname");
             return View(course);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(Course course, int id)
+        public async Task<IActionResult> Edit(CourseViewModel course, int id)
         {
             if (id != course.CourseId)
             {
@@ -52,7 +65,7 @@ namespace CourseApp.Data
             {
                 try
                 {
-                    _context.Update(course);
+                    _context.Update(new Course(){CourseId = course.CourseId, CourseName = course.CourseName, InstructorId = course.InstructorId});
                     await _context.SaveChangesAsync();
                 }
                 catch(DbUpdateConcurrencyException)

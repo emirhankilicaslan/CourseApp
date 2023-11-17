@@ -10,6 +10,7 @@ namespace CourseApp.Data
         public string? InstructorName { get; set; }
         [Display(Name = "Öğretmen Soyadı")]
         public string? InstructorSurname { get; set; }
+        [Display(Name = "Öğretmen")]
         public string NameSurname {
             get
             {
@@ -22,5 +23,6 @@ namespace CourseApp.Data
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode =false)]
         [Display(Name = "Kurs Başlangıç Tarihi")]
         public DateTime StartingDate { get; set; }
+        public ICollection<Course> Courses { get; set; } = new List<Course>();
     }
 }

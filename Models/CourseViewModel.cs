@@ -1,9 +1,10 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using CourseApp.Data;
 
-namespace CourseApp.Data
+namespace CourseApp.Models
 {
-    public class Course
+    public class CourseViewModel
     {
         [Display(Name = "Kurs Id")]
         [Key]
@@ -11,7 +12,6 @@ namespace CourseApp.Data
         [Display(Name = "Kurs Adı")]
         public string? CourseName { get; set; }
         public int? InstructorId { get; set; }
-        public Instructor Instructor { get; set; } = null!;
         public  ICollection<CourseRegistration> CourseRegistrations { get; set; } = new List<CourseRegistration>();
     }
 }

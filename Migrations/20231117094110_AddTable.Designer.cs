@@ -3,6 +3,7 @@ using System;
 using CourseApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20231117094110_AddTable")]
+    partial class AddTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.8");
@@ -26,12 +29,7 @@ namespace CourseApp.Migrations
                     b.Property<string>("CourseName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("InstructorId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("CourseId");
-
-                    b.HasIndex("InstructorId");
 
                     b.ToTable("Courses");
                 });
@@ -109,15 +107,6 @@ namespace CourseApp.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("CourseApp.Data.Course", b =>
-                {
-                    b.HasOne("CourseApp.Data.Instructor", "Instructor")
-                        .WithMany("Courses")
-                        .HasForeignKey("InstructorId");
-
-                    b.Navigation("Instructor");
-                });
-
             modelBuilder.Entity("CourseApp.Data.CourseRegistration", b =>
                 {
                     b.HasOne("CourseApp.Data.Course", "Course")
@@ -140,11 +129,6 @@ namespace CourseApp.Migrations
             modelBuilder.Entity("CourseApp.Data.Course", b =>
                 {
                     b.Navigation("CourseRegistrations");
-                });
-
-            modelBuilder.Entity("CourseApp.Data.Instructor", b =>
-                {
-                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("CourseApp.Data.Student", b =>

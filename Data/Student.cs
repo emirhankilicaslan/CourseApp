@@ -19,5 +19,6 @@ namespace CourseApp.Data
         }
         public string? Email { get; set; }
         public string? Telephone { get; set; }
+        public  ICollection<CourseRegistration> CourseRegistrations { get; set; } = new List<CourseRegistration>();
     }
 }
